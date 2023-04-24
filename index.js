@@ -5,10 +5,7 @@ const myH1 = document.createElement('h1');
 myH1.textContent = 'Awsome Book';
 
 const booksContainer = document.createElement('div');
-// booksContainer.setAttribute('class', 'booksContainer');
 booksContainer.className = "booksContainer";
-
-
 
 const hrLine = document.createElement('hr');
 
@@ -35,12 +32,9 @@ input2.className = "authore";
 const button1 = document.createElement("button");
 button1.type = "submit";
 button1.textContent = 'Add Book';
-// button1.className = "css-class-name";
-
 
 body.appendChild(myH1);
 body.appendChild(booksContainer);
-// body.appendChild(listofBooks);
 body.appendChild(hrLine);
 body.appendChild(myH2);
 
@@ -54,7 +48,7 @@ if (localStorage.getItem('Added Books') == null) {
     localStorage.setItem('Added Books', JSON.stringify([]));
 }
 
-const storeData =  JSON.parse(localStorage.getItem('Added Books'));
+let storeData =  JSON.parse(localStorage.getItem('Added Books'));
 
 function updateData() {
     localStorage.setItem('Added Books', JSON.stringify(storeData));
@@ -68,25 +62,11 @@ e.preventDefault();
 addNewdata(title.value, authore.value);
 });
 
-function removeBook(x) {
 
-    let items = JSON.parse(localStorage.getItem('Added Books'));
-    let index = x;
-    items.splice(index, 1);
-    localStorage.setItem('Added Books', JSON.stringify(items));
-
-
-    // // console.log(x);
-//    storeData.splice(2,1);
-    // console.log(storeData);
-    
-    // updateData();
-    // displayBooks();
-    
-}
 
 function createBooks(arr) {
 
+    booksContainer.innerHTML = '';
     for (let i = 0; i < arr.length;  i += 1) {
         const p1 = document.createElement('p');
         p1.textContent = arr[i].title;
@@ -103,18 +83,17 @@ function createBooks(arr) {
         button.addEventListener('click', () => {
             removeBook(i);
           });
+        const hr = document.createElement('hr');
 
           booksContainer.appendChild(p1);
           booksContainer.appendChild(p2);
           booksContainer.appendChild(button);
+          booksContainer.appendChild(hr);
     }
-    // displayBooks();
 }
 
 function displayBooks() {
-    // console.log("First"+storeData);
     createBooks(storeData);
-    // console.log("Second"+storeData);
 };
 
 
@@ -126,11 +105,21 @@ function addNewdata(bookTitle, bookAuthore) {
     storeData.push(Book);
     updateData();
     displayBooks();
+    
 }
 
 
-// displayBooks();
+function removeBook(x) {
 
+    let items = JSON.parse(localStorage.getItem('Added Books'));
+    let index = x;
+    items.splice(index, 1);
+    localStorage.setItem('Added Books', JSON.stringify(items));
+
+    storeData =  JSON.parse(localStorage.getItem('Added Books'));
+
+    displayBooks();
+}
 
 window.onload = displayBooks();
 
