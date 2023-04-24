@@ -8,7 +8,7 @@ const booksContainer = document.createElement('div');
 // booksContainer.setAttribute('class', 'booksContainer');
 booksContainer.className = "booksContainer";
 
-// const listofBooks = document.querySelector('.booksContainer');
+
 
 const hrLine = document.createElement('hr');
 
@@ -86,38 +86,35 @@ function removeBook(x) {
 }
 
 function createBooks(arr) {
-    let books = '';
+
     for (let i = 0; i < arr.length;  i += 1) {
-        // books += `
-        // <p>${arr[i].title}</p>
-        // <p>${arr[i].authore}</p>
-        // <button onclick="removeBook(${i})">Remove</button>
-        // <hr/>
-        // `;
         const p1 = document.createElement('p');
         p1.textContent = arr[i].title;
+        p1.style.width = '20%';
         const p2 = document.createElement('p');
         p2.textContent = arr[i].authore;
+        p2.style.width = '20%';
         const button = document.createElement('input');
         button.setAttribute('class', 'remove-button');
         button.type = 'button';
+        button.style.width = '20%';
+        button.style.color = 'red';
+        button.value = "Remove";
         button.addEventListener('click', () => {
             removeBook(i);
           });
-            // console.log(`${i}`);
+
+          booksContainer.appendChild(p1);
+          booksContainer.appendChild(p2);
+          booksContainer.appendChild(button);
     }
-    return books;
+    // displayBooks();
 }
 
 function displayBooks() {
-    const listofBooks = document.querySelector('.booksContainer');
-    // listofBooks.innerHTML = `
-    // <ul class="book-ul">
-    // ${createBooks(storeData)}</ul>
-    // `;
-    listofBooks.innerHTML = `
-    ${createBooks(storeData)}
-    `;
+    // console.log("First"+storeData);
+    createBooks(storeData);
+    // console.log("Second"+storeData);
 };
 
 
@@ -132,7 +129,7 @@ function addNewdata(bookTitle, bookAuthore) {
 }
 
 
-displayBooks();
+// displayBooks();
 
 
 window.onload = displayBooks();
