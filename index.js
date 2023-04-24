@@ -52,18 +52,6 @@ let storeData = JSON.parse(localStorage.getItem('Added Books'));
 function updateData() {
   localStorage.setItem('Added Books', JSON.stringify(storeData));
 }
-
-function removeBook(x) {
-    const items = JSON.parse(localStorage.getItem('Added Books'));
-    const index = x;
-    items.splice(index, 1);
-    localStorage.setItem('Added Books', JSON.stringify(items));
-  
-    storeData = JSON.parse(localStorage.getItem('Added Books'));
-  
-    createBooks(storeData);
-  }
-
 function createBooks(arr) {
   booksContainer.innerHTML = '';
   for (let i = 0; i < arr.length; i += 1) {
@@ -90,6 +78,16 @@ function createBooks(arr) {
     booksContainer.appendChild(hr);
   }
 }
+function removeBook(x) {
+  const items = JSON.parse(localStorage.getItem('Added Books'));
+  const index = x;
+  items.splice(index, 1);
+  localStorage.setItem('Added Books', JSON.stringify(items));
+
+  storeData = JSON.parse(localStorage.getItem('Added Books'));
+
+  createBooks(storeData);
+}
 
 function addNewdata(bookTitle, bookAuthore) {
   const Book = {
@@ -114,3 +112,4 @@ form.addEventListener('submit', (e) => {
 //   }
 
 window.onload = createBooks(storeData);
+/* eslint no-use-before-define: off */
