@@ -54,15 +54,13 @@ function updateData() {
 }
 
 function removeBook(x) {
-    const items = JSON.parse(localStorage.getItem('Added Books'));
-    const index = x;
-    items.splice(index, 1);
-    localStorage.setItem('Added Books', JSON.stringify(items));
-  
-    storeData = JSON.parse(localStorage.getItem('Added Books'));
-  
-    createBooks(storeData);
-  }
+  const items = JSON.parse(localStorage.getItem('Added Books'));
+  const index = x;
+  items.splice(index, 1);
+  localStorage.setItem('Added Books', JSON.stringify(items));
+
+  storeData = JSON.parse(localStorage.getItem('Added Books'));
+}
 
 function createBooks(arr) {
   booksContainer.innerHTML = '';
@@ -81,6 +79,8 @@ function createBooks(arr) {
     button.value = 'Remove';
     button.addEventListener('click', () => {
       removeBook(i);
+      storeData = JSON.parse(localStorage.getItem('Added Books'));
+      createBooks(storeData);
     });
     const hr = document.createElement('hr');
 
