@@ -124,7 +124,7 @@ You can deploy this project using:
 
 👤 **Abiy**
 
-- GitHub: [@abiy](https://github.com/ahmed025566)
+- GitHub: [@abiy](https://github.com/abiy006)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
