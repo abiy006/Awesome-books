@@ -22,14 +22,13 @@ function addElementsToPageFrom(arrayOfBooks) {
     const author = document.createElement('p');
     author.appendChild(document.createTextNode(book.author));
     div.appendChild(author);
-    // Create Delete Button
     const span = document.createElement('button');
     span.className = 'del';
     span.appendChild(document.createTextNode('Remove'));
-    // Append Button To Main Div
     div.appendChild(span);
-    // Add Task Div To Tasks Container
+    const hr = document.createElement('hr');
     booksDiv.appendChild(div);
+    booksDiv.appendChild(hr);
   });
 }
 function getDataFromLocalStorage() {
