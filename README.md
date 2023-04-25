@@ -124,7 +124,9 @@ You can deploy this project using:
 
 👤 **Abiy**
 
-- GitHub: [@abiy](https://github.com/abiy006)
+- GitHub: [@Abiy Github](https://github.com/abiy006)
+- Twitter: [@Abiy Twitter](https://twitter.com/Abiy62463489)
+- LinkedIn: [@Abiy LinkedIn](https://www.linkedin.com/in/abiy-hussen-aman-194587183/)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
